@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Prime {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        System.out.println(isPrime(n) ? "YES" : "NO");
+    }
+
+    static boolean isPrime(int n) {
+        if (n < 2) return false;
+        if (n % 2 == 0) return n == 2;
+        for (int d = 3; (long) d * d <= n; d += 2) {
+            if (n % d == 0) return false;
+        }
+        return true;
+    }
+}
