@@ -1,0 +1,27 @@
+import java.io.*;
+
+public class Main {
+
+    static long ackermann(int m, int n) {
+        if (m == 0) {
+            return n + 1;
+        }
+
+        if (n == 0) {
+            return ackermann(m - 1, 1);
+        }
+
+        return ackermann(m - 1, (int) ackermann(m, n - 1));
+    }
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in)
+        );
+
+        int m = Integer.parseInt(br.readLine());
+        int n = Integer.parseInt(br.readLine());
+
+        System.out.println(ackermann(m, n));
+    }
+}
